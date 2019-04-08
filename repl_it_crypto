@@ -1,0 +1,50 @@
+import Crypto
+from Crypto.PublicKey import RSA
+from Crypto import Random
+from base64 import b64decode,b64encode
+from Crypto.Hash import SHA256
+def generateRSAKey():
+  random_generator = Random.new().read
+  key = RSA.generate(1024, random_generator)
+  binPrivKey = key.exportKey('DER')
+  binPubKey =  key.publickey().exportKey('DER')
+  priv = b64encode(binPrivKey)
+  pub = b64encode(binPubKey)
+  return (priv, pub)
+  
+def sendRSAMessage(msg, rnd, b64pubkey):
+  binPubKey2 = b64decode(b64pubkey)
+  public_key =  RSA.importKey(binPubKey2)
+  rndstr = rnd[:16]
+  msgstr = msg[:100]
+  enc_msg = public_key.encrypt(msgstr+rndstr, 32)
+  print b64encode(enc_msg[0])
+  #return b64encode(enc_msg[0])
+  
+def decodeRSAMessage(enc_data, priv):
+  binPrivKey = b64decode(priv)
+  encData = b64decode(enc_data)
+  privKey = RSA.importKey(binPrivKey)
+  print privKey.decrypt(encData)
+  #return privKey.decrypt(encData)
+  
+#not done yet
+def sendAESnRSAMessage(msg, pwd, b64pubkey):
+  binPubKey2 = b64decode(b64pubkey)
+  public_key =  RSA.importKey(binPubKey2)
+  enc_pwd = public_key.encrypt(pwd, 32)
+  print b64encode(enc_pwd[0])
+  
+def HashString(data):
+  allData = ""
+  for item in data:
+    allData = allData + item + " "
+  hashVal = SHA256.new(allData).hexdigest()
+  return int(hashVal, 16)
+  
+data = ["Your Name","Your KTP number","Your wallet address"]
+#print HashString(data)
+
+#pv, pb = generateRSAKey()
+#enc = sendRSAMessage("The message", "A random variable", pb )
+#dec = decodeMSG(enc, pv)
