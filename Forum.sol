@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-contract Forum1 {
+contract Forum {
     string public name;
     uint public contentcounter;
     
@@ -20,7 +20,6 @@ contract Forum1 {
     }
     
     mapping (address => bool) founder;
-    //mapping (address => bool) admin;
     mapping (address => NewAdmin) admin;
     mapping (uint => konten) content;
     
