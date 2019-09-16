@@ -8,6 +8,7 @@ contract Sensor {
     address public admin;
 
     mapping (address => uint) public gateway;
+    mapping (uint => address) public gwid;
     mapping (uint => string) public content;
     
     
@@ -22,13 +23,14 @@ contract Sensor {
         require( !(msg.sender == admin) );
         require( ( gateway[msg.sender] < 1) );
         gateway[msg.sender] = 0;
+        gwid[gwcounter] = msg.sender;
+        gwcounter += 1;
     }
     
-    function approveAdmin(address _newGateway) public {
+    function approveAdmin(uint _Id) public {
         require(msg.sender == admin );
-        require(gateway[msg.sender] < 1);
-        gateway[_newGateway] = 1;
-        gwcounter += 1;
+        require(gateway[gwid[_Id]] < 1);
+        gateway[gwid[_Id]] = 1;
     }
     
     function addContent(string newContent) public {
@@ -41,4 +43,3 @@ contract Sensor {
         return content[_msgId];
     }
 }
-    
