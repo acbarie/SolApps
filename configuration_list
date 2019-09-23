@@ -1,5 +1,5 @@
 sender: 0xa5c64a61d225bc5614a2ce5fac81926438e93844
-admin										name	contract address							value
+admin						name	contract address				value
 		
 0x8b4926C81C6B923362c6cF079C3A3fA72A6fc1D3	suhu1	0x1495135352bb85df8354d6e4c4dbeac8a516c65a	0000
 0x1C49AA3FEAb57bc27Ad79F0De64862786766F611	suhu2	0x68d6da3bc5309ea0676115469d16f8af8eee4d30	0001
@@ -18,11 +18,10 @@ admin										name	contract address							value
 0x6F41912656BB18d177deeAA6aadff10586a049A5	suhu15	0x4da712cdcb6aa140d3f4b40b61943cf7d0f1e205	1110
 0x5Ffbb3ab4a56e309D718796f28D445b3Bfb82d1b	suhu16	0x0c480b90ab16102e43c89d633b282cc5fc976b39	1111
 
-Gas limits:
-
-175000,
-200000,
-225000,
-250000
+Gas limits	value
+175000		00
+200000		01
+225000		10
+250000		11
 
 
