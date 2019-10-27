@@ -20,8 +20,8 @@ owner/admin					name	contract address				value
 
 Gas limits	value
 175000		00
-200000		01
-225000		10
-250000		11
+250000		01
+325000		10
+400000		11
 
 
