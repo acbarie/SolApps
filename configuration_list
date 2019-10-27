@@ -1,5 +1,5 @@
-sender: 0xa5c64a61d225bc5614a2ce5fac81926438e93844
-admin						name	contract address				value
+sender(gateway): 0xa5c64a61d225bc5614a2ce5fac81926438e93844
+owner/admin					name	contract address				value
 		
 0x8b4926C81C6B923362c6cF079C3A3fA72A6fc1D3	suhu1	0x1495135352bb85df8354d6e4c4dbeac8a516c65a	0000
 0x1C49AA3FEAb57bc27Ad79F0De64862786766F611	suhu2	0x68d6da3bc5309ea0676115469d16f8af8eee4d30	0001
