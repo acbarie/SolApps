@@ -81,7 +81,7 @@ contract Forum {
     }
     
     function getContent(uint _msgId) public view returns (string){
-        if ( (content[_msgId].votecounter >= 3)  && !(content[_msgId].blacklisted)){
+        if ( (content[_msgId].votecounter > 3)  && !(content[_msgId].blacklisted)){
             return content[_msgId].data;
         }else{
             return "";
